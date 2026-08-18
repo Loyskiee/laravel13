@@ -24,8 +24,8 @@ class StoreCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required','string', 
-            Rule::unique('categories', 'name')->where('user_id', $this->user()->id)],
+            'name' => ['required', 'string',
+                Rule::unique('categories', 'name')->where('user_id', $this->user()->id)],
             'color' => 'required|string',
         ];
     }

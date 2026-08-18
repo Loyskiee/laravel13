@@ -1,6 +1,6 @@
 <script setup>
 import AppLayout from '../../layouts/AppLayout.vue';
-import { useForm } from '@inertiajs/vue3';
+import { useForm, Link } from '@inertiajs/vue3';
 import { route } from 'ziggy-js';
 import InputError from '../../components/InputError.vue';
 
@@ -63,6 +63,10 @@ const submit = () => {
                  >
                      {{ form.processing ? 'Creating...' : 'Create Category' }}
                  </button>
+
+                    <Link :href="route('categories.index')" class="text-sm text-gray-600 hover:underline">
+                        Go back
+                    </Link>
                 </form>
            </div>
     </AppLayout>

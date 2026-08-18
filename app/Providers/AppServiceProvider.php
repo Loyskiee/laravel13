@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Repositories\CategoryRepository;
 use App\Repositories\CategoryRepositoryInterface;
+use App\Repositories\TaskRepository;
+use App\Repositories\TaskRepositoryInterface;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
@@ -18,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
+        $this->app->bind(TaskRepositoryInterface::class, TaskRepository::class);
     }
 
     /**
