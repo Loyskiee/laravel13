@@ -6,8 +6,7 @@ import InputError from '@/components/InputError.vue';
 
 
 const form = useForm({
-    name: '',
-    description: ''
+    name: ''
 });
 
 const submit = () => {
@@ -27,12 +26,6 @@ const submit = () => {
                     <label class="mb-1 block text-sm font-medium text-gray-700">Name</label>
                     <input v-model="form.name" type="text" class="w-full rounded border border-gray-300 px-3 py-2" />
                     <InputError :message="form.errors.name" class="mt-1" />
-                </div>
-
-                <div>
-                    <label class="mb-1 block text-sm font-medium text-gray-700">Description</label>
-                    <input v-model="form.description" type="text" class="w-full rounded border border-gray-300 px-3 py-2" />
-                    <InputError :message="form.errors.description" class="mt-1" />
                 </div>
 
                 <div class="flex items-center gap-2">

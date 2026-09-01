@@ -11,8 +11,7 @@ const props = defineProps({
 
 // prefilled prop, that came through the category
 const form = useForm({
-    name: props.category.name,
-    description: props.category.description,
+    name: props.category.name
 });
 
 const submit = () => {
@@ -41,15 +40,6 @@ const destroy = () => {
                     <InputError :message="form.errors.name" class="mt-1" />
                 </div>
 
-               <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700">Description</label>
-                    <input
-                        v-model="form.description"
-                        type="text"
-                    class="mt-1 w-full rounded border border-gray-300 px-3 py-2"
-                    >
-                    <InputError :message="form.errors.description"  class="mt-1"/>
-                </div>
                 <div class="flex items-center gap-2">
                     <button type="submit" :disabled="form.processing" class="rounded bg-blue-600 px-4 py-2 text-white disabled:opacity-50">
                         {{ form.processing ? 'Saving...' : 'Save Changes' }}

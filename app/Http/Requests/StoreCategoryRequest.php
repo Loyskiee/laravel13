@@ -26,7 +26,6 @@ class StoreCategoryRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255',
                 Rule::unique('categories', 'name')->where('user_id', $this->user()->id)],
-            'description' => 'required|string|max:255',
         ];
     }
 }

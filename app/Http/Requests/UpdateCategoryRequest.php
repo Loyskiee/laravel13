@@ -26,7 +26,6 @@ class UpdateCategoryRequest extends FormRequest
         return [
             'name' => ['sometimes','required','string','max:255',
              Rule::unique('categories','name')->where('user_id',$this->user()->id)->ignore($this->route('category')->id)],
-            'description' => 'sometimes|required|string|max:255'
         ];
     }
 }
