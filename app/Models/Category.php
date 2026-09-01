@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable('user_id', 'name', 'color')]
+#[Fillable('user_id', 'name', 'description')]
 #[Hidden('user_id')]
 class Category extends Model
 {
@@ -21,9 +21,14 @@ class Category extends Model
     {
         return $this->belongsTo(User::class);
     }
-
+    
     public function tasks(): HasMany
     {
         return $this->hasMany(Task::class);
+    }
+
+    public function products(): HasMany
+    {
+        return $this->hasMany(Product::class);
     }
 }

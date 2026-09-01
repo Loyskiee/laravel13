@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
-import { BookOpen, FolderGit2, LayoutGrid, Notebook, Tags } from '@lucide/vue';
+import { History, LayoutGrid, Package, Tags } from '@lucide/vue';
 import AppLogo from '@/components/AppLogo.vue';
 import NavFooter from '@/components/NavFooter.vue';
 import NavMain from '@/components/NavMain.vue';
@@ -17,7 +17,7 @@ import {
 import { dashboard } from '@/routes';
 import type { NavItem } from '@/types';
 import categories from '@/routes/categories';
-import tasks from '@/routes/tasks';
+import products from '@/routes/products';
 
 const mainNavItems: NavItem[] = [
     {
@@ -25,18 +25,21 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
-
+    {
+        title: 'Products',
+        href: products.index(),
+        icon: Package,
+    },
     {
         title: 'Categories',
         href: categories.index(),
-        icon: Tags
+        icon: Tags,
     },
-
     {
-        title:'Tasks',
-        href: tasks.index(),
-        icon:Notebook
-    }
+        title: 'Inventory History',
+        href: '/inventory-history',
+        icon: History,
+    },
 ];
 
 </script>

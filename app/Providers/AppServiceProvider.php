@@ -4,6 +4,10 @@ namespace App\Providers;
 
 use App\Repositories\CategoryRepository;
 use App\Repositories\CategoryRepositoryInterface;
+use App\Repositories\InventoryRepository;
+use App\Repositories\InventoryRepositoryInterface;
+use App\Repositories\ProductRepository;
+use App\Repositories\ProductRepositoryInterface;
 use App\Repositories\TaskRepository;
 use App\Repositories\TaskRepositoryInterface;
 use Carbon\CarbonImmutable;
@@ -20,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
+        $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
+        $this->app->bind(InventoryRepositoryInterface::class, InventoryRepository::class);
         $this->app->bind(TaskRepositoryInterface::class, TaskRepository::class);
     }
 
