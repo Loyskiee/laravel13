@@ -44,7 +44,7 @@ class CategoryController extends Controller
             'user_id' => $request->user()->id,
         ]);
 
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('success', 'Category created');
     }
 
     /**
@@ -68,7 +68,7 @@ class CategoryController extends Controller
 
         $category = $this->categoryRepository->update($request->validated(), $category);
 
-        return redirect()->route('categories.show', $category);
+        return redirect()->route('categories.show', $category)->with('success', 'Category updated');
     }
 
     /**
@@ -80,6 +80,6 @@ class CategoryController extends Controller
 
         $this->categoryRepository->delete($category);
 
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('success', 'Category deleted.');
     }
 }

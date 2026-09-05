@@ -1,5 +1,4 @@
 <script setup>
-import AppLayout from '@/layouts/AppLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
 import CategoryCard from '@/components/CategoryCard.vue';
 import Pagination from '@/components/Pagination.vue';
@@ -10,7 +9,6 @@ defineProps({
 </script>
 
 <template>
-    <AppLayout>
         <Head title="Categories" />
 
         <div class="p-4">
@@ -29,5 +27,4 @@ defineProps({
                 <Pagination :links="categories.links" class="mt-4" />
             </div>
         </div>
-    </AppLayout>
 </template>

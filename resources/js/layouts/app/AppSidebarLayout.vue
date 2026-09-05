@@ -5,6 +5,23 @@ import AppSidebar from '@/components/AppSidebar.vue';
 import AppSidebarHeader from '@/components/AppSidebarHeader.vue';
 import { Toaster } from '@/components/ui/sonner';
 import type { BreadcrumbItem } from '@/types';
+import { usePage } from '@inertiajs/vue3';
+import { toast } from 'vue-sonner';
+import { watch } from 'vue';
+
+const page = usePage();
+watch(
+    () => (page.props as any).flash?.success,
+    (msg) => {
+        if (msg) toast.success(msg);
+    },
+);
+watch(
+    () => (page.props as any).flash?.error,
+    (msg) => {
+        if (msg) toast.error(msg);
+    },
+);
 
 type Props = {
     breadcrumbs?: BreadcrumbItem[];

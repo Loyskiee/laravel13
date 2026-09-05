@@ -18,7 +18,7 @@ class StoreProductRequest extends FormRequest
         return [
             'category_id' => ['required', 'integer', Rule::exists('categories', 'id')->where('user_id', $this->user()->id)],
             'name' => ['required', 'string', 'max:255'],
-            'sku' => ['required', 'string', 'min:3', 'max:50', Rule::unique('products', 'sku')->where('user_id', $this->user()->id)],
+            'sku' => ['sometimes', 'string', 'min:3', 'max:50', Rule::unique('products', 'sku')->where('user_id', $this->user()->id)],
             'description' => ['nullable', 'string', 'max:1000'],
             'quantity' => ['nullable', 'integer', 'min:0'],
             'minimum_stock' => ['required', 'integer', 'min:0'],

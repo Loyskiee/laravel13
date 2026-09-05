@@ -28,8 +28,15 @@ class ProductController extends Controller
             10
         );
 
+        $categories = $request->user()->categories()
+            ->select('id', 'name')
+            ->orderBy('name')
+            ->get();
+
         return Inertia::render('Products/Index', [
+            'categories' => $categories,
             'products' => $products,
+            'filters' => $request->only('search', 'stock_status', 'category_id')
         ]);
     }
 
@@ -43,7 +50,7 @@ class ProductController extends Controller
 
     public function store(StoreProductRequest $request)
     {
-        $this->productService->createWithInitialMovement($request->validated(), $request->user());
+        $this->productService->createSku($request->validated(), $request->user());
 
         return redirect()->route('products.index')->with('success', 'Product created.');
     }

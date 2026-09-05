@@ -1,5 +1,4 @@
 <script setup>
-import AppLayout from '@/layouts/AppLayout.vue';
 import { useForm, Link, Head } from '@inertiajs/vue3';
 import { route } from 'ziggy-js';
 import InputError from '@/components/InputError.vue';
@@ -27,7 +26,6 @@ const destroy = () => {
 </script>
 
 <template>
-    <AppLayout>
         <Head :title="`Category: ${category.name}`" />
 
         <div class="mx-auto max-w-md p-4">
@@ -51,5 +49,4 @@ const destroy = () => {
                 </div>
             </form>
         </div>
-    </AppLayout>
 </template>

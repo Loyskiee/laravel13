@@ -1,5 +1,4 @@
 <script setup>
-import AppLayout from '@/layouts/AppLayout.vue';
 import { Head, Link, router } from '@inertiajs/vue3';
 import { ref, watch } from 'vue';
 import { route } from 'ziggy-js';
@@ -51,9 +50,9 @@ watch(
             >
                 <h1 class="text-xl font-semibold">Products</h1>
 
-                <Link
+                   <Link
                     :href="route('products.create')"
-                    class="rounded bg-blue-600 px-4 py-2 text-white"
+                    class="rounded bg-primary px-4 py-2 text-primary-foreground hover:bg-primary/90 transition-colors"
                 >
                     New Product
                 </Link>
@@ -159,7 +158,7 @@ watch(
                         <div class="flex justify-between">
                             <Link
                                 :href="route('products.show', p.id)"
-                                class="font-medium text-blue-600"
+                                class="font-medium text-gray-600"
                             >
                                 {{ p.name }}
                             </Link>

@@ -1,5 +1,4 @@
 <script setup>
-import AppLayout from '@/layouts/AppLayout.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import InputError from '@/components/InputError.vue';
 
@@ -7,13 +6,32 @@ defineProps({
     categories: Array,
 });
 
-const units = ['pcs', 'kg', 'g', 'l', 'ml', 'box', 'pack', 'm'];
-const form = useForm({ name: '', sku: '', category_id: '', description: '', quantity: 0, minimum_stock: 0, unit: 'pcs', image: '' });
+const units = [
+    'pcs',
+    'kg', 
+    'g', 
+    'l', 
+    'ml', 
+    'box', 
+    'pack', 
+    'm'
+];
+
+const form = useForm({
+    name: '',
+    category_id: '', 
+    description: '', 
+    quantity: 0, 
+    minimum_stock: 0, 
+    unit: 'pcs', 
+    image: '' 
+});
+
 const submit = () => form.post(route('products.store'));
+
 </script>
 
 <template>
-    <AppLayout>
         <Head title="Create Product" />
 
         <div class="mx-auto max-w-2xl p-4">
@@ -27,11 +45,6 @@ const submit = () => form.post(route('products.store'));
                 </div>
 
                 <div class="grid gap-4 md:grid-cols-2">
-                    <div>
-                        <label class="block text-sm">SKU</label>
-                        <input v-model="form.sku" class="mt-1 w-full rounded border px-3 py-2" required />
-                        <InputError :message="form.errors.sku" />
-                    </div>
 
                     <div>
                         <label class="block text-sm">Category</label>
@@ -72,7 +85,7 @@ const submit = () => form.post(route('products.store'));
                 </div>
 
                 <div class="flex gap-2">
-                    <button type="submit" :disabled="form.processing" class="rounded bg-blue-600 px-4 py-2 text-white disabled:opacity-50">
+                    <button type="submit" :disabled="form.processing" class="rounded bg-secondary px-4 py-2 text-secondary-foreground hover:bg-secondary/90 transition-colors disabled:opacity-50">
                         {{ form.processing ? 'Creating...' : 'Create' }}
                     </button>
 
@@ -80,5 +93,4 @@ const submit = () => form.post(route('products.store'));
                 </div>
             </form>
         </div>
-    </AppLayout>
 </template>

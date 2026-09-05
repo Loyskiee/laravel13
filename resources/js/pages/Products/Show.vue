@@ -55,11 +55,6 @@ const destroy = () => {
                 </div>
 
                 <div class="grid gap-4 md:grid-cols-2">
-                    <div>
-                        <label class="mb-1 block text-sm font-medium text-gray-700">SKU</label>
-                        <input v-model="form.sku" type="text" class="w-full rounded border border-gray-300 px-3 py-2" />
-                        <InputError :message="form.errors.sku" class="mt-1" />
-                    </div>
 
                     <div>
                         <label class="mb-1 block text-sm font-medium text-gray-700">Category</label>

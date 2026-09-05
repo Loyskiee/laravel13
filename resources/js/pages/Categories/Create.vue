@@ -1,5 +1,4 @@
 <script setup>
-import AppLayout from '@/layouts/AppLayout.vue';
 import { useForm, Link, Head } from '@inertiajs/vue3';
 import { route } from 'ziggy-js';
 import InputError from '@/components/InputError.vue';
@@ -15,7 +14,6 @@ const submit = () => {
 </script>
 
 <template>
-    <AppLayout>
         <Head title="Create Category" />
 
         <div class="mx-auto max-w-md p-4">
@@ -29,7 +27,7 @@ const submit = () => {
                 </div>
 
                 <div class="flex items-center gap-2">
-                    <button type="submit" :disabled="form.processing" class="rounded bg-blue-600 px-4 py-2 text-white disabled:opacity-50">
+                    <button type="submit" :disabled="form.processing" class="rounded bg-secondary px-4 py-2 text-secondary-foreground hover:bg-secondary/90 transition-colors disabled:opacity-50">
                         {{ form.processing ? 'Creating...' : 'Create Category' }}
                     </button>
 
@@ -37,5 +35,4 @@ const submit = () => {
                 </div>
             </form>
         </div>
-    </AppLayout>
 </template>

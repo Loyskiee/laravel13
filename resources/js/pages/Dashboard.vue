@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Head, Link } from '@inertiajs/vue3';
+import { route } from 'ziggy-js';
 import { AlertTriangle, Archive, Ban, LayoutGrid } from '@lucide/vue';
 import { dashboard } from '@/routes';
 
@@ -71,12 +72,12 @@ const recentActivity = [
                 >
                     Adjust Stock
                 </button>
-                <button
-                    class="inline-flex items-center gap-1.5 rounded-lg bg-[#1a4a3a] px-4 py-2 text-sm font-medium text-white shadow-xs transition-colors hover:bg-[#163d30]"
+                  <Link
+                    :href="route('products.create')"
+                    class="rounded bg-primary px-4 py-2 text-primary-foreground hover:bg-primary/90 transition-colors"
                 >
-                    <span class="text-base leading-none">+</span>
-                    Add Product
-                </button>
+                    New Product
+                </Link>
             </div>
         </div>
 
@@ -84,7 +85,7 @@ const recentActivity = [
         <div class="grid grid-cols-2 gap-3 lg:grid-cols-4">
 
             <!-- Total Products -->
-            <div class="col-span-2 flex flex-col gap-2 rounded-xl bg-[#1a4a3a] p-4 text-white sm:col-span-1 lg:col-span-1">
+            <div class="col-span-2 flex flex-col gap-2 rounded-xl bg-primary p-4 text-primary-foreground sm:col-span-1 lg:col-span-1">
                 <div class="flex items-center justify-between">
                     <span class="text-xs font-semibold uppercase tracking-widest text-white/70">Total</span>
                     <Archive class="size-4 text-white/60" />
@@ -206,8 +207,8 @@ const recentActivity = [
                             <div
                                 class="size-2.5 rounded-full"
                                 :class="{
-                                    'bg-[#1a4a3a]': activity.type === 'in',
-                                    'bg-[#1a4a3a]/60': activity.type === 'adjustment',
+                                    'bg-primary': activity.type === 'in',
+                                    'bg-primary/60': activity.type === 'adjustment',
                                     'bg-muted-foreground/40': activity.type === 'out',
                                 }"
                             />
