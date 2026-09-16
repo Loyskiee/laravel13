@@ -48,7 +48,7 @@ class TaskController extends Controller
     {
         $this->taskRepository->create($request->validated());
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('tasks.index')->with('Succes create');
     }
 
     /**

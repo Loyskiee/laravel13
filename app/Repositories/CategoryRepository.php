@@ -20,6 +20,7 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
     public function getPaginatedCategory(User $user, int $perPage = 10): LengthAwarePaginator
     {
         return Category::where('user_id', $user->id)
+            ->withCount('products')
             ->latest()
             ->paginate($perPage);
     }

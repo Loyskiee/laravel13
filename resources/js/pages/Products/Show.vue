@@ -1,6 +1,5 @@
 <script setup>
 import { useForm, Link, Head } from '@inertiajs/vue3';
-import AppLayout from '@/layouts/AppLayout.vue';
 import InputError from '@/components/InputError.vue';
 import StockBadge from '@/components/StockBadge.vue';
 
@@ -33,7 +32,7 @@ const destroy = () => {
 </script>
 
 <template>
-    <AppLayout>
+
         <Head :title="`Product: ${product.name}`" />
 
         <div class="mx-auto max-w-2xl p-4">
@@ -111,5 +110,4 @@ const destroy = () => {
                 </div>
             </form>
         </div>
-    </AppLayout>
 </template>
